@@ -19,13 +19,13 @@ import {OperationStatus} from 'xiot-core-spec-ts/dist/xiot/core/spec/typedef/sta
 
 export class XcpClientBase implements XcpClient {
 
-  private udid: XcpUniversalDID;
   private ws: WebSocket | null = null;
+  private verifyHandler: (result: boolean) => void = () => {};
+  private udid: XcpUniversalDID;
   private verifier: XcpClientVerifier | null = null;
   private verified = false;
   private frameCodec: BinaryFrameCodec | null = null;
   private messageCodec: XcpMessageCodec;
-  private verifyHandler: (result: boolean) => void = () => {};
   private resultHandlers: Map<string, (result: IQResult | null, error: IQError | null) => void>;
   private queryHandlers: Map<string, (query: IQQuery) => void>;
   private messageId = 1;
@@ -41,32 +41,36 @@ export class XcpClientBase implements XcpClient {
     this.queryHandlers = new Map<string, (query: IQQuery) => void>();
   }
 
-  connect(host: string, port: number, uri: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-      reject('not implemented');
-    });
+  protected createWebSocket(url: string): any {
+    // this.ws = new WebSocket(url);
+    throw Error('createWebSocket failed !');
   }
 
-  // connect(host: string, port: number, uri: string): Promise<void> {
-  //   const url = 'ws://' + host + ':' + port + uri;
-  //   console.log('connect: ' + url);
-  //   this.ws = new WebSocket(url);
-  //   this.ws.addEventListener('open', () => this.onConnected());
-  //   this.ws.addEventListener('close', () => this.onDisconnect());
-  //   this.ws.addEventListener('error', () => this.onError());
-  //   this.ws.addEventListener('message', message => this.onMessage(message));
-  //
-  //   return new Promise<void>((resolve, reject) => {
-  //     this.verifyHandler = (result) => {
-  //       if (result) {
-  //         resolve();
-  //         return;
-  //       }
-  //
-  //       reject();
-  //     };
-  //   });
-  // }
+  connect(host: string, port: number, uri: string): Promise<void> {
+    const url = 'ws://' + host + ':' + port + uri;
+    console.log('connect: ' + url);
+
+    this.ws = this.createWebSocket(url);
+    if (this.ws == null) {
+      throw Error('new WebSocket Failed!');
+    }
+
+    this.ws.addEventListener('open', () => this.onConnected());
+    this.ws.addEventListener('close', () => this.onDisconnect());
+    this.ws.addEventListener('error', () => this.onError());
+    this.ws.addEventListener('message', message => this.onMessage(message));
+
+    return new Promise<void>((resolve, reject) => {
+      this.verifyHandler = (result) => {
+        if (result) {
+          resolve();
+          return;
+        }
+
+        reject();
+      };
+    });
+  }
 
   disconnect(): void {
     if (this.ws != null) {
