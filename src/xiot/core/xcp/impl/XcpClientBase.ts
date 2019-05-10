@@ -20,7 +20,6 @@ import {OperationStatus} from 'xiot-core-spec-ts/dist/xiot/core/spec/typedef/sta
 export class XcpClientBase implements XcpClient {
 
   private ws: WebSocket | null = null;
-  private verifyHandler: (result: boolean) => void = () => {};
   private udid: XcpUniversalDID;
   private verifier: XcpClientVerifier | null = null;
   private verified = false;
@@ -29,6 +28,7 @@ export class XcpClientBase implements XcpClient {
   private resultHandlers: Map<string, (result: IQResult | null, error: IQError | null) => void>;
   private queryHandlers: Map<string, (query: IQQuery) => void>;
   private messageId = 1;
+  private verifyHandler: (result: boolean) => void = () => {};
 
   constructor(serialNumber: string,
               productId: number,
@@ -92,6 +92,10 @@ export class XcpClientBase implements XcpClient {
 
   getUdid(): string {
     return this.udid.toString();
+  }
+
+  getDeviceId(): string {
+    return this.udid.did;
   }
 
   getNextId(): string {

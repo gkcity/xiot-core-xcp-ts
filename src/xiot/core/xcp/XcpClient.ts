@@ -16,6 +16,8 @@ export interface XcpClient {
 
   getUdid(): string;
 
+  getDeviceId(): string;
+
   getNextId(): string;
 
   addQueryHandler(method: string, handler: (query: IQQuery) => void): void;
