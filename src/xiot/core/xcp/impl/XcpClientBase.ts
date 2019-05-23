@@ -151,7 +151,7 @@ export class XcpClientBase implements XcpClient {
   }
 
   private onMessage(message: any): void {
-    console.log(Date() + ' onMessage: ', message.data);
+    console.log(Date() + ' recv: ', message.data);
 
     let msg: XcpMessage | null = null;
 
