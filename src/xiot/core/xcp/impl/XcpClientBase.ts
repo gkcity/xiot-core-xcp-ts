@@ -29,6 +29,7 @@ export class XcpClientBase implements XcpClient {
   private queryHandlers: Map<string, (query: IQQuery) => void>;
   private messageId = 1;
   private verifyHandler: (result: boolean) => void = () => {};
+  private disconnectHandler: () => void = () => {};
 
   constructor(serialNumber: string,
               productId: number,
@@ -107,6 +108,10 @@ export class XcpClientBase implements XcpClient {
     this.queryHandlers.set(method, handler);
   }
 
+  addDisconnectHandler(handler: () => void): void {
+    this.disconnectHandler = handler;
+  }
+
   sendQuery(query: IQQuery): Promise<IQResult> {
     this.write(this.messageCodec.encode(query));
     return new Promise<IQResult>((resolve, reject) => {
@@ -143,6 +148,7 @@ export class XcpClientBase implements XcpClient {
   private onDisconnect(): void {
     console.log('onDisconnect');
     this.ws = null;
+    this.disconnectHandler();
   }
 
   private onError(): void {

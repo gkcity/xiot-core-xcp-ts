@@ -22,6 +22,8 @@ export interface XcpClient {
 
   addQueryHandler(method: string, handler: (query: IQQuery) => void): void;
 
+  addDisconnectHandler(handler: () => void): void;
+
   sendQuery(query: IQQuery): Promise<IQResult>;
 
   sendResult(result: IQResult): void;
