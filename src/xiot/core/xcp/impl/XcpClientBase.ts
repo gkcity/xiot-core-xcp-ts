@@ -157,16 +157,16 @@ export class XcpClientBase implements XcpClient {
   }
 
   private onMessage(message: any): void {
-    console.log(Date() + ' recv: ', message.data);
-
     let msg: XcpMessage | null = null;
 
     if (this.frameCodec == null) {
+      console.log(Date() + ' recv text frame: ', message.data);
       msg = this.messageCodec.decode(message.data);
     } else {
       const data = this.frameCodec.decrypt(message.data);
       if (data != null) {
         const s = Utf8ArrayToStr(data);
+        console.log(Date() + ' recv binary frame: ', s);
         msg = this.messageCodec.decode(s);
       }
     }
@@ -249,6 +249,8 @@ export class XcpClientBase implements XcpClient {
   }
 
   private setXcpSessionKey(key: XcpSessionKey): void {
+    console.log('setXcpSessionKey, codec: ', key.codec);
+
     if (key.codec !== XcpFrameCodecType.NOT_CRYPT) {
       this.frameCodec = new WebSocketBinaryFrameCodecImpl(key.deviceToServer, key.serverToDevice);
     }
