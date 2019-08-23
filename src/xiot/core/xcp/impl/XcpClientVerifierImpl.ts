@@ -4,16 +4,13 @@ import {XcpClient} from '../XcpClient';
 import {XcpClientCipher} from '../XcpClientCipher';
 import {XcpFrameCodecType, XcpFrameCodecTypeToNumber} from '../common/XcpFrameCodecType';
 import {Convert, Curve25519, Random} from 'mipher';
-import {QueryInitialize} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/basic/Initialize';
 import {XcpAuthenticationTypeToString} from '../common/XcpAuthenticationType';
-import {QueryVerifyStart, ResultVerifyStart} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/basic/VerifyStart';
-import {QueryVerifyFinish, ResultVerifyFinish} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/basic/VerifyFinish';
 import {KeyPair} from '../KeyPair';
 import {XcpKeyCreator} from '../key/XcpKeyCreator';
 import {XcpKeyType} from '../key/XcpKeyType';
 import {BytesJoin, StringToUint8Array} from '../utils/Uint8ArrayUtils';
 import {ChaCha20Poly1305} from '@stablelib/chacha20poly1305';
-import {IQResult} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQResult';
+import {IQResult, QueryInitialize, QueryVerifyFinish, QueryVerifyStart, ResultVerifyFinish, ResultVerifyStart} from '../../../..';
 
 // import {X25519KeyAgreement} from '@stablelib/x25519';
 

@@ -1,0 +1,9 @@
+{
+  "iq": {
+    "type": "result",
+    "method": "urn:xiot:set-access-key",
+    "id": "5014",
+    "from": "xxxx",
+    "to": "xxxx"
+  }
+}

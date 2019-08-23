@@ -1,0 +1,16 @@
+{
+  "iq": {
+    "type": "query",
+    "method": "urn:xiot:get-properties",
+    "from": "xxxx",
+    "to": "xxxx",
+    "id": "5004",
+    "content": {
+      "properties": [
+        "1.1.1",
+        "1.1.2",
+        "1.1.3"
+      ]
+    }
+  }
+}

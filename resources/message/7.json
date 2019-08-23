@@ -1,0 +1,9 @@
+    {
+      "iq": {
+        "type": "query",
+        "method": "urn:xiot:ping",
+        "from": "xxx",
+        "to": "xxx",
+        "id": "5003"
+      }
+    }

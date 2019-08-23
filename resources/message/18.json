@@ -1,0 +1,21 @@
+{
+  "iq": {
+    "type": "query",
+    "method": "urn:xiot:event-occurred",
+    "from": "xxxx",
+    "to": "xxxx",
+    "id": "5008",
+    "content": {
+      "eid": "2.1.1",
+      "arguments": [
+        {
+          "piid": 2,
+          "values": [
+            37,
+            9
+          ]
+        }
+      ]
+    }
+  }
+}

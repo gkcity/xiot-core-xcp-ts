@@ -1,0 +1,22 @@
+    {
+      "iq": {
+        "type": "query",
+        "method": "urn:xiot:invoke-action",
+        "from": "xxxx",
+        "to": "xxxx",
+        "id": "5006",
+        "content": {
+          "aid": "2.1.9",
+          "in": [
+            {
+              "piid": 2,
+              "values": [37]
+            },
+            {
+              "piid": 3,
+              "values": [3600, 1800]
+            }
+          ]
+        }
+      }
+    }

@@ -3,19 +3,12 @@ import {XcpClientVerifier} from '../XcpClientVerifier';
 import {XcpClientVerifierImpl} from './XcpClientVerifierImpl';
 import {XcpFrameCodecType} from '../common/XcpFrameCodecType';
 import {XcpClientCipher} from '../XcpClientCipher';
-import {XcpMessageCodec} from 'xiot-core-message-ts/dist/xiot/core/message/codec/XcpMessageCodec';
-import {XcpMessage} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/XcpMessage';
-import {IQ} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQ';
-import {IQType} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQType';
-import {IQQuery} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQQuery';
-import {IQResult} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQResult';
-import {IQError} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQError';
 import {XcpSessionKey} from '../common/XcpSessionKey';
 import {WebSocketBinaryFrameCodecImpl} from '../codec/WebSocketBinaryFrameCodecImpl';
 import {BinaryFrameCodec} from '../BinaryFrameCodec';
 import {Utf8ArrayToStr} from '../utils/Uint8ArrayUtils';
-import {XcpUniversalDID} from 'xiot-core-spec-ts/dist/xiot/core/spec/typedef/udid/XcpUniversalDID';
-import {OperationStatus} from 'xiot-core-spec-ts/dist/xiot/core/spec/typedef/status/OperationStatus';
+import {IQ, IQError, IQQuery, IQResult, IQType, XcpMessage, XcpMessageCodec} from '../../../..';
+import {OperationStatus, XcpUniversalDID} from 'xiot-core-spec-ts';
 
 export class XcpClientBase implements XcpClient {
 

@@ -1,0 +1,13 @@
+
+    {
+      "iq": {
+        "type": "query",
+        "method": "urn:xiot:verify-start",
+        "from": "xxx",
+        "to": "xxx",
+        "id": "3000",
+        "content": {
+          "public-key": "xxxx"
+        }
+      }
+    }

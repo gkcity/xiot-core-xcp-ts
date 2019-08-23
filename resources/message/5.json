@@ -1,0 +1,14 @@
+    {
+      "iq": {
+        "type": "query",
+        "method": "urn:xiot:verify-finish",
+        "from": "aaa",
+        "to": "bbb",
+        "id": "3001",
+        "content": {
+          "udid": "xxxx@10001/1",
+          "signature": "xxxx",
+          "codec": 0
+        }
+      }
+    }

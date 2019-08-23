@@ -1,0 +1,22 @@
+    {
+      "iq": {
+        "type": "result",
+        "method": "urn:xiot:properties-changed",
+        "from": "xxxx",
+        "to": "xxxx",
+        "id": "5007",
+        "content": {
+          "properties": [
+            {
+              "pid": "2.1.2",
+              "status": 0
+            },
+            {
+              "pid": "2.2.3",
+              "status": -5,
+              "description": "xxx"
+            }
+          ]
+        }
+      }
+    }

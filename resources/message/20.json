@@ -1,0 +1,12 @@
+{
+  "iq": {
+    "type": "error",
+    "id": "5008",
+    "from": "a",
+    "to": "b",
+    "content": {
+      "status": -3,
+      "description": "value invalid"
+    }
+  }
+}

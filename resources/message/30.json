@@ -1,0 +1,12 @@
+    {
+      "iq": {
+        "type": "result",
+        "method": "urn:xiot:get-access-key",
+        "from": "xxxx",
+        "to": "xxxx",
+        "id": "5013",
+        "content": {
+          "key": "abcdef1234567890"
+        }
+      }
+    }

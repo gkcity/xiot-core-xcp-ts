@@ -1,6 +1,4 @@
-import {IQQuery} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQQuery';
-import {IQResult} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQResult';
-import {IQError} from 'xiot-core-message-ts/dist/xiot/core/message/typedef/iq/IQError';
+import {IQError, IQQuery, IQResult} from '../../..';
 
 export interface XcpClient {
 

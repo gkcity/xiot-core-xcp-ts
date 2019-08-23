@@ -1,0 +1,21 @@
+{
+  "iq": {
+    "type": "query",
+    "method": "urn:xiot:children-added",
+    "from": "xxxx",
+    "to": "xxxx",
+    "id": "5011",
+    "content": {
+      "children": [
+        {
+          "did": "1",
+          "type": "urn:homekit-spec:device:outlet:00000A01:abc:aaa:1"
+        },
+        {
+          "did": "2",
+          "type": "urn:homekit-spec:device:motion-sensor:00000A11:abc:bbb:2"
+        }
+      ]
+    }
+  }
+}

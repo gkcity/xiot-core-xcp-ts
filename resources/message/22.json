@@ -1,0 +1,9 @@
+    {
+      "iq": {
+        "type": "result",
+        "method": "urn:xiot:bye-bye",
+        "from": "xxxx",
+        "to": "xxxx",
+        "id": "5009"
+      }
+    }
